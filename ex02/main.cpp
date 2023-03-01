@@ -6,12 +6,13 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 01:48:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/01 17:43:42 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/03/01 21:53:55 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "ShrubberyCreationForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
 
 int	main(void)
 {
@@ -20,12 +21,18 @@ int	main(void)
 	{
 		Bureaucrat A("Gorbachev", 1);
 		std::cout << A << std::endl;
-		Bureaucrat B("Shcherbina", 2);
-		std::cout << B << std::endl;
-		Form C("chernobyl", 1, 1);
-		std::cout << C << std::endl;
+
+		ShrubberyCreationForm B("shru", "123");
+		RobotomyRequestForm C("Robo", "asd");
+		PresidentialPardonForm D("Pardon", "Bogon");
+		
+		A.signForm(B);
 		A.signForm(C);
-		std::cout << C << std::endl;
+		A.signForm(D);
+
+		A.executeForm(B);
+		A.executeForm(C);
+		A.executeForm(D);
 	}
 	catch (std::exception & e)
 	{

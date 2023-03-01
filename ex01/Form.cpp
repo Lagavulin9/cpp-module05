@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:03:41 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/27 22:03:41 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/01 17:37:18 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,16 @@
 Form::Form():
 	_name("Default Form"),
 	_signed(false),
-	_signGrade(150),
-	_execGrade(150)
+	_signGrade(Form::DEFAULT_SIGN_GRADE),
+	_execGrade(Form::DEFAULT_EXEC_GRADE)
 {
 }
 
 Form::Form(const std::string& name):
 	_name(name),
 	_signed(false),
-	_signGrade(150),
-	_execGrade(150)
+	_signGrade(Form::DEFAULT_SIGN_GRADE),
+	_execGrade(Form::DEFAULT_EXEC_GRADE)
 {
 }
 
@@ -35,9 +35,9 @@ Form::Form(const std::string& name, int signGrade, int execGrade):
 	_signGrade(signGrade),
 	_execGrade(execGrade)
 {
-	if (this->_signGrade < 1 || this->_execGrade < 1)
+	if (this->_signGrade < Form::MAX_GRADE)
 		throw Form::FormGradeTooHighException();
-	if (this->_signGrade > 150 || this->_execGrade > 150)
+	if (this->_signGrade > Form::MIN_GRADE)
 		throw Form::FormGradeTooLowException();
 }
 
@@ -81,12 +81,12 @@ bool	Form::getSigned(void) const
 	return (this->_signed);
 }
 
-const int	Form::getSignGrade(void) const
+int	Form::getSignGrade(void) const
 {
 	return (this->_signGrade);
 }
 
-const int	Form::getExecGrade(void) const
+int	Form::getExecGrade(void) const
 {
 	return (this->_execGrade);
 }
@@ -103,8 +103,8 @@ const char*	Form::FormGradeTooLowException::what() const throw()
 
 std::ostream& operator<<(std::ostream& os, const Form& ref)
 {
-	os << ref.getName() << std::boolalpha \
-		<< ", signed: " << ref.getSigned() \
+	os << "Form name: " << ref.getName() \
+		<< ", signed: " << std::boolalpha << ref.getSigned() \
 		<< ", signGrade: " << ref.getSignGrade() \
 		<< ", execGrade: " << ref.getExecGrade();
 	return (os);

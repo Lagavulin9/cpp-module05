@@ -1,6 +1,6 @@
 NAME = bureaucrat
 CXX = c++
-CXXFLAGS = #-Wall -Werror -Wextra -std=c++98 -pedantic
+CXXFLAGS = -Wall -Werror -Wextra -std=c++98 -pedantic
 LDFLAGS =
 SRCS = main.cpp \
 	Bureaucrat.cpp \
@@ -8,6 +8,9 @@ SRCS = main.cpp \
 OBJS = $(SRCS:.cpp=.o)
 
 all : $(NAME)
+
+%o: %cpp
+	$(CC) $(CXXFLAGS) -c $< -o $@
 
 $(NAME) : $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)

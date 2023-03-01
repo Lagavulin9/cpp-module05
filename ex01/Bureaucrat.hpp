@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 16:30:28 by marvin            #+#    #+#             */
-/*   Updated: 2023/02/27 16:30:28 by marvin           ###   ########.fr       */
+/*   Updated: 2023/03/01 17:32:51 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,12 @@
 class Form;
 
 class Bureaucrat {
+protected:
+	static const int			MAX_GRADE = 1;
+	static const int			MIN_GRADE = 150;
+	static const int			DEFAULT_GRADE = MIN_GRADE;
 private:
-	const std::string&	_name;
+	const std::string	_name;
 	int					_grade;
 public:
 	Bureaucrat();
@@ -39,7 +43,7 @@ public:
 	void				decrementGrade(void);
 	void				decrementGrade(int);
 	int					getGrade(void) const;
-	void				signForm(Form&) const;
+	void				signForm(Form&);
 
 	class GradeTooHighException : public std::exception
 	{
