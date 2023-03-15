@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:03:31 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/01 21:35:05 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:53:08 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ protected:
 	static const int	MIN_GRADE = 150;
 	static const int	DEFAULT_SIGN_GRADE = MIN_GRADE;
 	static const int	DEFAULT_EXEC_GRADE = MIN_GRADE;
-private:
+
 	const std::string	_name;
 	bool				_signed;
 	const int			_signGrade;
 	const int			_execGrade;
 	const std::string	_target;
-	
+private:
 	AForm&	operator=(const AForm&);
 public:
 	AForm();

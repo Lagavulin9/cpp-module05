@@ -27,7 +27,7 @@ private:
 	
 public:
 	ShrubberyCreationForm();
-	ShrubberyCreationForm(const std::string&, const std::string&);
+	ShrubberyCreationForm(const std::string&);
 	ShrubberyCreationForm(const ShrubberyCreationForm&);
 	~ShrubberyCreationForm();
 

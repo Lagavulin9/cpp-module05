@@ -14,15 +14,15 @@
 #include "Bureaucrat.hpp"
 
 ShrubberyCreationForm::ShrubberyCreationForm():
-	AForm::AForm("Default name", \
+	AForm::AForm("ShrubberyCreationForm", \
 				ShrubberyCreationForm::SIGN_GRADE, \
 				ShrubberyCreationForm::EXEC_GRADE, \
 				"Default target")
 {
 }
 
-ShrubberyCreationForm::ShrubberyCreationForm(const std::string& name, const std::string& target):
-	AForm::AForm(name, \
+ShrubberyCreationForm::ShrubberyCreationForm(const std::string& target):
+	AForm::AForm("ShrubberyCreationForm", \
 				ShrubberyCreationForm::SIGN_GRADE, \
 				ShrubberyCreationForm::EXEC_GRADE, \
 				target)
@@ -30,10 +30,10 @@ ShrubberyCreationForm::ShrubberyCreationForm(const std::string& name, const std:
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& ref):
-	AForm::AForm(ref.getName(), \
+	AForm::AForm(ref._name, \
 				ShrubberyCreationForm::SIGN_GRADE, \
 				ShrubberyCreationForm::EXEC_GRADE, \
-				ref.getTarget())
+				ref._target)
 {
 }
 
@@ -51,15 +51,23 @@ ShrubberyCreationForm&	ShrubberyCreationForm::operator=(const ShrubberyCreationF
 void	ShrubberyCreationForm::execute(const Bureaucrat& executer) const
 {
 
-	if (this->getSigned() == false)
+	if (this->_signed == false)
 		throw AForm::AFormUnauthorizedException();
-	if (this->getExecGrade() < executer.getGrade())
+	if (this->_execGrade < executer.getGrade())
 		throw AForm::AFormExcuteGradeException();
 	
-	std::string	file_name = this->getTarget();
+	std::string	file_name = this->_target;
 	file_name.append("_shrubbery");
 	
 	std::ofstream file(file_name);
-	file << "test tree";
+	file << "       _-_ ;
+    /~~   ~~\
+ /~~         ~~\
+{               }
+ \\  _-     -_  /
+   ~  \\ //  ~
+_- -   | | _- _
+  _ -  | |   -_
+      // \\ ";
 	file.close();
 }

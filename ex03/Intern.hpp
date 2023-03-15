@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 22:02:33 by jinholee          #+#    #+#             */
-/*   Updated: 2023/03/01 22:02:37 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:41:54 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 class Intern
 {
 private:
-	/* data */
+
 public:
-	Intern(/* args*/);
+	Intern();
 	Intern(const Intern&);
 	~Intern();
 

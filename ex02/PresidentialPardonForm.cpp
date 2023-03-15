@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:31:31 by jinholee          #+#    #+#             */
-/*   Updated: 2023/03/01 21:38:57 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:53:43 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #include "Bureaucrat.hpp"
 
 PresidentialPardonForm::PresidentialPardonForm():
-	AForm::AForm("Default name", \
+	AForm::AForm("PresidentialPardonForm", \
 				PresidentialPardonForm::SIGN_GRADE, \
 				PresidentialPardonForm::EXEC_GRADE, \
 				"Default target")
 {
 }
 
-PresidentialPardonForm::PresidentialPardonForm(const std::string& name, const std::string& target):
-	AForm::AForm(name, \
+PresidentialPardonForm::PresidentialPardonForm(const std::string& target):
+	AForm::AForm("PresidentialPardonForm", \
 				PresidentialPardonForm::SIGN_GRADE, \
 				PresidentialPardonForm::EXEC_GRADE, \
 				target)
@@ -30,10 +30,10 @@ PresidentialPardonForm::PresidentialPardonForm(const std::string& name, const st
 }
 
 PresidentialPardonForm::PresidentialPardonForm(const PresidentialPardonForm& ref):
-	AForm::AForm(ref.getName(), \
+	AForm::AForm(ref._name, \
 				PresidentialPardonForm::SIGN_GRADE, \
 				PresidentialPardonForm::EXEC_GRADE, \
-				ref.getTarget())
+				ref._target)
 {
 }
 
@@ -50,9 +50,9 @@ PresidentialPardonForm&	PresidentialPardonForm::operator=(const PresidentialPard
 
 void	PresidentialPardonForm::execute(const Bureaucrat& executer) const
 {
-	if (this->getSigned() == false)
+	if (this->_signed == false)
 		throw AForm::AFormUnauthorizedException();
-	if (this->getExecGrade() < executer.getGrade())
+	if (this->_execGrade < executer.getGrade())
 		throw AForm::AFormExcuteGradeException();
-	std::cout << this->getTarget() << " has been pardoned by Zaphod Beeblebrox." << std::endl;
+	std::cout << this->_target << " has been pardoned by Zaphod Beeblebrox." << std::endl;
 }

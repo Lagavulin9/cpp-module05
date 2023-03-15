@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/28 01:48:34 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/01 21:53:55 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:56:41 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ int	main(void)
 		Bureaucrat A("Gorbachev", 1);
 		std::cout << A << std::endl;
 
-		ShrubberyCreationForm B("shru", "123");
-		RobotomyRequestForm C("Robo", "asd");
-		PresidentialPardonForm D("Pardon", "Bogon");
+		ShrubberyCreationForm B("123");
+		RobotomyRequestForm C("asd");
+		PresidentialPardonForm D("Bogon");
 		
 		A.signForm(B);
 		A.signForm(C);

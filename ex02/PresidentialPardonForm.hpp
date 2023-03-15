@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/01 19:15:40 by jinholee          #+#    #+#             */
-/*   Updated: 2023/03/01 21:37:50 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:53:57 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ private:
 	
 public:
 	PresidentialPardonForm();
-	PresidentialPardonForm(const std::string&, const std::string& target);
+	PresidentialPardonForm(const std::string&);
 	PresidentialPardonForm(const PresidentialPardonForm&);
 	~PresidentialPardonForm();
 

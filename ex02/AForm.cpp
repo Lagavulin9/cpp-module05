@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:03:41 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/01 21:45:07 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/03/15 17:49:34 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,10 +45,10 @@ AForm::AForm(const std::string& name, int signGrade, int execGrade, const std::s
 }
 
 AForm::AForm(const AForm& ref):
-	_name(ref.getName()),
-	_signed(ref.getSigned()),
-	_signGrade(ref.getSignGrade()),
-	_execGrade(ref.getExecGrade())
+	_name(ref._name),
+	_signed(ref._signed),
+	_signGrade(ref._signGrade),
+	_execGrade(ref._execGrade)
 {	
 }
 

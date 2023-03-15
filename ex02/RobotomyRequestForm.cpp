@@ -14,15 +14,15 @@
 #include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm():
-	AForm::AForm("Default name", \
+	AForm::AForm("RobotomyRequestForm", \
 				RobotomyRequestForm::SIGN_GRADE, \
 				RobotomyRequestForm::EXEC_GRADE, \
 				"Default target")
 {
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const std::string& name, const std::string& target):
-	AForm::AForm(name, \
+RobotomyRequestForm::RobotomyRequestForm(const std::string& target):
+	AForm::AForm("RobotomyRequestForm", \
 				RobotomyRequestForm::SIGN_GRADE, \
 				RobotomyRequestForm::EXEC_GRADE, \
 				target)
@@ -30,10 +30,10 @@ RobotomyRequestForm::RobotomyRequestForm(const std::string& name, const std::str
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& ref):
-	AForm::AForm(ref.getName(), \
+	AForm::AForm(ref._name, \
 				RobotomyRequestForm::SIGN_GRADE, \
 				RobotomyRequestForm::EXEC_GRADE, \
-				ref.getTarget())
+				ref._target)
 {
 }
 
@@ -52,13 +52,13 @@ void	RobotomyRequestForm::execute(const Bureaucrat& executer) const
 {
 	struct timeval	now;
 
-	if (this->getSigned() == false)
+	if (this->_signed == false)
 		throw AForm::AFormUnauthorizedException();
-	if (this->getExecGrade() < executer.getGrade())
+	if (this->_execGrade < executer.getGrade())
 		throw AForm::AFormExcuteGradeException();
 	gettimeofday(&now, 0);
 	if (now.tv_usec % 2)
-		std::cout << this->getTarget() << " has been successfully robotomized." << std::endl;
+		std::cout << this->_target << " has been successfully robotomized." << std::endl;
 	else
-		std::cout << "failed to robotomize " << this->getTarget() << std::endl;
+		std::cout << "failed to robotomize " << this->_target << std::endl;
 }
