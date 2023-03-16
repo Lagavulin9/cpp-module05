@@ -6,7 +6,7 @@
 /*   By: jinholee <jinholee@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 22:03:41 by marvin            #+#    #+#             */
-/*   Updated: 2023/03/15 17:48:10 by jinholee         ###   ########.fr       */
+/*   Updated: 2023/03/16 22:06:38 by jinholee         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,12 +93,12 @@ int	Form::getExecGrade(void) const
 
 const char*	Form::FormGradeTooHighException::what() const throw()
 {
-	return "Form: Grade Too High";
+	return "Form: Grade Set Too High";
 }
 
 const char*	Form::FormGradeTooLowException::what() const throw()
 {
-	return "Form: Grade Too Low";
+	return "Form: Grade Set Too Low";
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& ref)
