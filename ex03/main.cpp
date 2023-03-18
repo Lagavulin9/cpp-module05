@@ -10,9 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
 #include "Intern.hpp"
 
 int	main(void)
@@ -20,7 +17,24 @@ int	main(void)
 
 	try
 	{
-		Intern A;
+		Bureaucrat	A("Ryo", 1);
+		Intern 		B;
+
+		AForm*	tree = B.makeForm("schrubbery creation", "bocchi");
+		AForm*	robot = B.makeForm("robotomy request", "kita");
+		AForm*	pardon = B.makeForm("presidential pardon", "nijika");
+
+		A.signForm(*tree);
+		A.signForm(*robot);
+		A.signForm(*pardon);
+
+		A.executeForm(*tree);
+		A.executeForm(*robot);
+		A.executeForm(*pardon);
+
+		AForm*	wrongForm = B.makeForm("wrong form", "kikuri");
+		A.signForm(*wrongForm);
+		A.executeForm(*wrongForm);
 	}
 	catch (std::exception & e)
 	{
